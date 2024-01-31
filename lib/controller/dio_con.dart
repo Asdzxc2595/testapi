@@ -12,6 +12,7 @@ class DioController extends GetxController{
     if(response.statusCode ==200 ){
       response.data.forEach((element){
         dioco.add(ModelV.fromJson(element));
+        print('e');
       });
       //print(response);
     }

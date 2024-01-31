@@ -1,26 +1,32 @@
+import 'dart:convert';
 
+List<ModelV> modelfrom(String str) {
+  // ทำการแปลง String เป็น List<ModelV>
+  List<dynamic> jsonData = json.decode(str);
+  return List<ModelV>.from(jsonData.map((item) => ModelV.fromJson(item)));
+}
 
-List<ModelV> modelfrom(String str)=><ModelV>;
-String modelfrom(list<ModelV) data
-
-class ModelV{
+class ModelV {
   late final int userId;
   late final int id;
   late final String title;
   late final String body;
+
   ModelV({
     required this.userId,
     required this.id,
     required this.title,
     required this.body,
   });
-  ModelV.fromJson(Map<String,dynamic>json){
-    userId = json ['userId'];
-    id = json ['id'];
-    title = json ['title'];
-    body = json ['body'];
-  }
+
+  // ปรับปรุงฟังก์ชันนี้
+  ModelV.fromJson(Map<String, dynamic> json)
+      : userId = json['userId'],
+        id = json['id'],
+        title = json['title'],
+        body = json['body'];
 }
+
 
 
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testapi/controller/dio_con.dart';
-import 'package:testapi/model/modelview.dart';
 
 //import 'service/dios.dart';
 class Homepage extends StatelessWidget {
@@ -20,7 +19,7 @@ class Homepage extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         child:Obx(() =>  ListView.builder(
-          itemCount: DioController.dios.length,
+          itemCount:  DioController().dioco.length,
           itemBuilder: (ctx, i) {
             return Card(
                 child: ListTile(
@@ -31,15 +30,15 @@ class Homepage extends StatelessWidget {
                     color: Colors.amberAccent[400],
                     borderRadius: BorderRadius.circular(7)),
                 child:
-                    Center(child: Text(DioController.dioco[i].id.toString())),
+                    Center(child: Text(DioController().dioco[i].id.toString())),
               ),
               title:  Text(
-                DioController.dioco[i].title.toString(),
+                DioController().dioco[i].title.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.w300,
                 ),
               ),
-              subtitle: Text(DataTableThemeData.dio[i].body.toString()),
+              subtitle: Text(DataTableThemeData.Dios[i].body.toString()),
             ));
           },
         ),
